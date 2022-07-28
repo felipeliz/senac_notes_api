@@ -1,0 +1,47 @@
+{
+  "name": "senac_notes_api",
+  "version": "1.0.0",
+  "description": "Senac Notes API",
+  "main": "src/server.js",
+  "nodemonConfig": {
+    "exec": "npm run dev",
+    "watch": [
+      "src/*"
+    ],
+    "ignore": [
+      "**/__tests__/**",
+      "*.test.js",
+      "*.spec.js"
+    ]
+  },
+  "scripts": {
+    "start": "npm run prod",
+    "build": "npm-run-all clean transpile",
+    "server": "set DEBUG=express:* & node ./dist-src/server",
+    "dev": "NODE_ENV=development npm-run-all build server",
+    "prod": "NODE_ENV=production npm-run-all build server",
+    "transpile": "babel ./src --out-dir dist-src",
+    "clean": "rimraf dist-server",
+    "watch:dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipeliz/senac_notes_api.git"
+  },
+  "author": "Felipe Martins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipeliz/senac_notes_api/issues"
+  },
+  "homepage": "https://github.com/felipeliz/senac_notes_api#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
+    "npm-run-all": "^4.1.5",
+    "sequelize": "^6.21.3",
+    "sequelize-cli": "^6.4.1",
+    "sucrase": "^3.24.0"
+  }
+}
