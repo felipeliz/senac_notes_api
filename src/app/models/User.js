@@ -16,6 +16,7 @@ class User extends Model {
   }
   static associate(models) {
     this.belongsTo(models.Profile, {foreignKey: 'profileId', as: 'profile'});
+    this.hasMany(models.Note, {foreignKey: 'userId', as: 'note'});
   }
 }
 

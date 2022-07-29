@@ -4,6 +4,7 @@ import databaseConfig from '../config/database';
 /** * Models ** */
 import Profile from '../app/models/Profile';
 import User from '../app/models/User';
+import Note from '../app/models/Note';
 
 const models = [];
 
@@ -17,9 +18,11 @@ class Database {
 
     Profile.init(this.connection);
     User.init(this.connection);
+    Note.init(this.connection);
     
     Profile.associate(this.connection.models);
     User.associate(this.connection.models);
+    Note.associate(this.connection.models);
   }
 }
 
